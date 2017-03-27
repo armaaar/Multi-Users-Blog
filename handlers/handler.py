@@ -1,11 +1,26 @@
-import handlers
+from handlers import tables, helper
 
-class Handler(handlers.webapp2.RequestHandler):
+# webapp
+import webapp2
+# Templates
+import os
+import jinja2
+# Other
+import time
+
+# Load Templates
+templates_dir = os.path.join(os.path.dirname(__file__), helper.variables.templates_dir)
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(templates_dir),
+                         autoescape = True)
+
+
+
+class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.write(*a, **kw)
 
     def render_str(self, template, **args):
-        t = handlers.jinja_env.get_template(template)
+        t = jinja_env.get_template(template)
         return t.render(args)
 
     def render(self, template, **args):
@@ -25,7 +40,7 @@ class Handler(handlers.webapp2.RequestHandler):
     def is_loggedin(self):
         cookie_username = self.get_cookie('username')
         cookie_pw = self.get_cookie('pw')
-        user = users.get(username=cookie_username)
+        user = tables.users.get(username=cookie_username)
 
         if isinstance(user, Users):
             cookie_pw = cookie_pw.split("|")
@@ -40,6 +55,6 @@ class Handler(handlers.webapp2.RequestHandler):
             salt = helper.functions.create_salt()
             password = "%s|%s" % (helper.functions.hash_it(password, salt), salt)
             self.set_cookie("pw", password)
-            handlers.time.sleep(0.1)
+            time.sleep(0.1)
             return True
         return True

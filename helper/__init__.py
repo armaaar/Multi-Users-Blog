@@ -1,8 +1,4 @@
-# Hashing
-import hashlib
-import hmac
-# Salting
-import string
-import random
+import variables
+import functions
 
 __all__ = ["variables", "functions"]
