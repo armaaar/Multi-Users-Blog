@@ -5,4 +5,4 @@ description = ''
 keywords = ''
 main_img = ''
 
-templates_dir = 'templates'
+templates_dir = '../templates'

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+	<head>
+		<title>
+			{% if helper.variables.site_title == handler.title %}
+				{{ handler.title }}
+			{% else %}
+				{{ handler.title }} - {{ helper.variables.site_title }}
+			{% endif %}
+		</title>
+
+		<base href="{{ handler.request.host_url }}">
+		<link rel="shortcut icon" type="imagex-icon" href="./favicon.ico" />
+
+		{% include "./head/seo.jinja" %}
+
+		<link rel="stylesheet" href="./styles/global.min.css" />
+		<script type="text/javascript" src="./scripts/global.min.js"></script>
+	</head>
+	<body class="{{ helper.variables.body_class }}" >
+		{% block content %}
+        {% endblock content %}
+	</body>
+</html>

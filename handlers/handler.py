@@ -16,12 +16,21 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(templates_dir),
 
 
 class Handler(webapp2.RequestHandler):
+
+    def __init__(self, *args, **kwargs) :
+        super(Handler, self).__init__(*args, **kwargs)
+        self.title = "Parallel Words"
+        self.body_class = ''
+        self.description = ''
+        self.keywords = ''
+        self.seo_img = ''
+
     def write(self, *a, **kw):
         self.response.write(*a, **kw)
 
     def render_str(self, template, **args):
         t = jinja_env.get_template(template)
-        return t.render(args)
+        return t.render(args, helper=helper, tables=tables)
 
     def render(self, template, **args):
         self.write( self.render_str(template, **args) )
