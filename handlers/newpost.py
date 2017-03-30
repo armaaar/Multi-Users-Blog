@@ -8,13 +8,13 @@ class NewPostHandler(Handler):
 
     def get(self):
         if not self.is_loggedin():
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             self.render('newpost.jinja', handler=self)
 
     def post(self):
         if not self.is_loggedin():
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             title = elf.request.get("title")
             content = self.request.get("content")

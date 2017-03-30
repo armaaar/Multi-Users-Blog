@@ -9,14 +9,14 @@ class EditPostHandler(Handler):
     def get(self, article_id):
         article= tables.articles.get(article_id)
         if self.is_loggedin() != article.user:
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             self.render('newpost.jinja', handler=self, article_id= article_id, title = article.title, content = article.content)
 
     def post(self, article_id):
         article= tables.articles.get(article_id)
         if self.is_loggedin() != article.user:
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             title = self.request.get("title")
             content = self.request.get("content")

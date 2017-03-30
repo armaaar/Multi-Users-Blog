@@ -26,8 +26,8 @@ a {
 .form-group.has-feedback.has-error .form-control-feedback.glyphicon.glyphicon-remove {
   display: block; }
 
-.form-message {
-  color: #f00; }
+.form-message, .form-group-message {
+  color: #a94442; }
 
 #header {
   min-height: 75px;

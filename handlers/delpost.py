@@ -9,7 +9,7 @@ class DeletePostHandler(Handler):
     def get(self, article_id):
         article= tables.articles.get(article_id)
         if self.is_loggedin() != article.user:
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             self.render('delpost.jinja', handler=self, article=article)
 
@@ -17,7 +17,7 @@ class DeletePostHandler(Handler):
     def post(self, article_id):
         article= tables.articles.get(article_id)
         if self.is_loggedin() != article.user:
-            self.page_redirect("/")
+            self.page_redirect("/login/")
         else:
             tables.articles.delete(article_id)
             self.page_redirect('/')
