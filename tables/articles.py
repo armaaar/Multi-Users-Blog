@@ -10,4 +10,4 @@ def get_all(order="DESC"):
         order= "ASC"
     else:
         order= "DESC"
-    return db.GqlQuery("SELECT * FROM Articles ORDER BY date %s" % order)
+    return db.GqlQuery("SELECT * FROM Articles ORDER BY date %s" % order).fetch(limit=None)
