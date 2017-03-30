@@ -1,0 +1,88 @@
+{% extends "./head/head.jinja" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-xs-12">
+        <form method="post">
+            <div class="form-group has-feedback
+                        {% if feedback %}
+                            {% if error['username'] %}
+                                has-error
+                            {% else %}
+                                has-success
+                            {% endif %}
+                        {% endif %}
+                        ">
+                <label class="text-capitalize" for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ username }}">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span class="form-group-message">
+                    {% if feedback and error %}
+                        {{ error['username'] }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="form-group has-feedback
+                        {% if feedback %}
+                            {% if error['password'] %}
+                                has-error
+                            {% else %}
+                                has-success
+                            {% endif %}
+                        {% endif %}
+                        ">
+                <label class="text-capitalize" for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span class="form-group-message">
+                    {% if feedback and error %}
+                        {{ error['password'] }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="form-group has-feedback
+                        {% if feedback %}
+                            {% if error['verify'] %}
+                                has-error
+                            {% else %}
+                                has-success
+                            {% endif %}
+                        {% endif %}
+                        ">
+                <label class="text-capitalize" for="verify">verify Password:</label>
+                <input type="password" class="form-control" id="verify" name="verify">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span class="form-group-message">
+                    {% if feedback and error %}
+                        {{ error['verify'] }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="form-group has-feedback
+                        {% if feedback %}
+                            {% if error['email'] %}
+                                has-error
+                            {% else %}
+                                has-success
+                            {% endif %}
+                        {% endif %}
+                        ">
+                <label class="text-capitalize" for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ email }}">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span class="form-group-message">
+                    {% if feedback and error %}
+                        {{ error['email'] }}
+                    {% endif %}
+                </span>
+            </div>
+            <button type="submit" class="btn btn-default text-capitalize">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -21,5 +21,6 @@ from handlers import *
 
 app = webapp2.WSGIApplication([
     ('/', blog.BlogHandler),
-    ('/blog/?', blog.BlogHandler)
+    ('/blog/?', blog.BlogHandler),
+    ('/register/?', signup.SignupHandler)
 ], debug=True)

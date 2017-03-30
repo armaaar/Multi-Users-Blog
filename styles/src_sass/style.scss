@@ -47,5 +47,30 @@ a
     }
 }
 
+.form-group.has-feedback
+{
+    .form-control-feedback
+    {
+        top: 30px;
+        display: none;
+    }
+}
+
+.form-group.has-feedback.has-success
+{
+    .form-control-feedback.glyphicon.glyphicon-ok
+    {
+        display: block;
+    }
+}
+
+.form-group.has-feedback.has-error
+{
+    .form-control-feedback.glyphicon.glyphicon-remove
+    {
+        display: block;
+    }
+}
+
 @import "menu";
 @import "articles";

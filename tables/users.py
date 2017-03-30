@@ -17,13 +17,13 @@ def get(username=None, user_id=None):
     return None
 
 def user_exists(username=None, user_id=None):
-    user = User.get(username, user_id)
+    user = get(username, user_id)
     if isinstance(user, Users):
         return True
     return None
 
 def add(username, password, email):
-    if not User.get(username=username):
+    if not get(username=username):
         user = Users(username = username, password = password, email = email)
         user.put()
         return True

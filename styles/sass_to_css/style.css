@@ -17,12 +17,22 @@ img {
   max-width: 100%; }
 
 a, .cta-container a {
-  color: #BCD; }
+  color: #BDF; }
 
 .cta-container {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 5px; }
+
+.form-group.has-feedback .form-control-feedback {
+  top: 30px;
+  display: none; }
+
+.form-group.has-feedback.has-success .form-control-feedback.glyphicon.glyphicon-ok {
+  display: block; }
+
+.form-group.has-feedback.has-error .form-control-feedback.glyphicon.glyphicon-remove {
+  display: block; }
 
 #header {
   min-height: 75px;
@@ -88,7 +98,7 @@ article.article {
       top: 40%;
       line-height: 0;
       font-size: 20em;
-      color: #BCD; }
+      color: #BDF; }
       @media (max-width: 991px) {
         article.article .title-container .article-identifier {
           right: -10%;
