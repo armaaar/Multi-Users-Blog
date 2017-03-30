@@ -26,5 +26,7 @@ app = webapp2.WSGIApplication([
     ('/register/?', signup.SignupHandler),
     ('/logout/?', logout.LogoutHandler),
     ('/login/?', login.LoginHandler),
-    ('/newpost/?', newpost.NewPostHandler)
+    ('/newpost/?', newpost.NewPostHandler),
+    ('/editpost/(\d+)/?', editpost.EditPostHandler),
+    ('/delpost/(\d+)/?', delpost.DeletePostHandler)
 ], debug=True)

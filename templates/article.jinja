@@ -10,6 +10,16 @@
                     </h1>
                     <span class="article-identifier text-uppercase">{{ article.user[0] }}</span>
                     <span class="article-date">{{ article.date.strftime("%b %d, %Y") }}</span>
+                    {% if handler.is_loggedin() == article.user %}
+                        <div class="post-options cta-container">
+                            <a href="/editpost/{{ article.key().id() }}" class="btn btn-default text-uppercase">
+                                <span class="glyphicon glyphicon-edit"></span> edit
+                            </a>
+                            <a href="/delpost/{{ article.key().id() }}" class="btn btn-default text-capitalize">
+                                <span class="glyphicon glyphicon-remove"></span> delete
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="col-xs-12 col-md-6 content-container">

@@ -64,6 +64,9 @@ class Handler(webapp2.RequestHandler):
             salt = helper.functions.create_salt()
             password = "%s|%s" % (helper.functions.hash_it(password, salt), salt)
             self.set_cookie("pw", password)
-            time.sleep(0.1)
             return True
         return True
+
+    def page_redirect(self, url):
+        time.sleep(0.1)
+        self.redirect(str(url))

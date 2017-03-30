@@ -10,10 +10,15 @@
                 <input type="text" class="form-control" id="title" name="title" value="{{ title }}">
             </div>
             <div class="form-group">
+                <label class="text-capitalize" for="editor">content:</label>
                 <textarea name="content" id="editor">{{ content }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-default text-capitalize">Publish</button>
+            {% if article_id %}
+                <a href="/delpost/{{ article_id }}" class="btn btn-default text-capitalize">delete article</a>
+                <a href="/article/{{ article_id }}" class="btn btn-default text-capitalize">Cancel</a>
+            {% endif %}
             <span class="form-message">{{ error }}</span>
         </form>
     </div>

@@ -6,4 +6,4 @@ class LogoutHandler(Handler):
 
     def get(self):
         self.delete_cookie('username')
-        self.redirect("/")
+        self.page_redirect("/")

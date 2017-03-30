@@ -29,10 +29,6 @@ a
     text-align: center;
     margin-top: 10px;
     margin-bottom: 5px;
-    a
-    {
-        @extend a;
-    }
 }
 
 @import "forms";

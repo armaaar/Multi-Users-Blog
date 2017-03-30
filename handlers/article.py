@@ -7,7 +7,7 @@ class ArticleHandler(Handler):
 
     def get(self, article_id):
         if not article_id.isdigit():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             article= tables.articles.get(article_id)
             self.render('article.jinja', handler=self, article= article)

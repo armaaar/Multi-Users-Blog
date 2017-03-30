@@ -8,14 +8,14 @@ class LoginHandler(Handler):
 
     def get(self):
         if self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             self.render('login.jinja', handler=self, feedback=None)
 
 
     def post(self):
         if self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             username = self.request.get("username")
             password = self.request.get("password")
@@ -33,4 +33,4 @@ class LoginHandler(Handler):
                 self.render('login.jinja', handler=self, feedback=True, error = error, username = username)
             else :
                 self.login(username, user.password)
-                self.redirect('/')
+                self.page_redirect('/')

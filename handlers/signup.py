@@ -9,13 +9,13 @@ class SignupHandler(Handler):
 
     def get(self):
         if self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             self.render('signup.jinja', handler=self, feedback=None)
 
     def post(self):
         if self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             username = self.request.get("username")
             password = self.request.get("password")
@@ -43,4 +43,4 @@ class SignupHandler(Handler):
                 password = helper.functions.hash_it(password=password, salt_it=False)
                 tables.users.add(username=username, password=password, email=email)
                 self.login(username, password)
-                self.redirect('/')
+                self.page_redirect('/')

@@ -8,15 +8,15 @@ class NewPostHandler(Handler):
 
     def get(self):
         if not self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
             self.render('newpost.jinja', handler=self)
 
     def post(self):
         if not self.is_loggedin():
-            self.redirect("/")
+            self.page_redirect("/")
         else:
-            title = self.request.get("title")
+            title = elf.request.get("title")
             content = self.request.get("content")
             if not title:
                 error = "Title must not be empty."
@@ -26,4 +26,4 @@ class NewPostHandler(Handler):
                 self.render('newpost.jinja', handler=self, title = title, content = content, error = error)
             else:
                 article = tables.articles.add(title, content, self.get_cookie("username"))
-                self.redirect("/article/"+str(article))
+                self.page_redirect("/article/"+str(article))

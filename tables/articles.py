@@ -25,7 +25,25 @@ def add(title, content, username):
     article.put()
     return article.key().id()
 
+def edit(article_id, title, content):
+    if article_id.isdigit():
+        article = get(article_id)
+        article.title = title
+        article.content = content
+        article.put()
+        return True
+    else:
+        return None
+
+def delete(article_id):
+    if article_id.isdigit():
+        article = get(article_id)
+        article.delete()
+        return True
+    else:
+        return None
+
 def Delete_all():
-    users = Users.all()
-    for u in users:
+    articles = Articles.all()
+    for u in articles:
         u.delete()

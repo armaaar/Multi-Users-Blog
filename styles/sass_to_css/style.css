@@ -8,7 +8,7 @@ body {
 img {
   max-width: 100%; }
 
-a, .cta-container a {
+a {
   color: #BBE; }
 
 .cta-container {
@@ -101,6 +101,8 @@ article.article {
         article.article .title-container .article-identifier {
           right: -10%;
           top: 100%; } }
+    article.article .title-container .post-options {
+      text-align: left; }
   article.article .content-container {
     padding-top: 15px;
     text-align: justify;
