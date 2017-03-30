@@ -1,0 +1,60 @@
+article.article
+{
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $inactive-color;
+
+    .title-container
+    {
+        position: relative;
+        @media(max-width: $break-medium - 1)
+        {
+            text-align: center;
+        }
+        .article-title
+        {
+            margin-top: 0;
+            margin-bottom: 0.3em;
+            font-size: 5em;
+
+            @media(max-width: $break-medium - 1)
+            {
+                font-size: 3em;
+            }
+
+            a
+            {
+                color: $font-color;
+                text-decoration: none;
+            }
+            a:hover
+            {
+                color: $active-color;
+            }
+        }
+        .article-identifier
+        {
+            z-index: -1;
+            position: absolute;
+            right: -15%;
+            top: 40%;
+            line-height: 0;
+
+            font-size: 20em;
+            color: $special-color;
+
+            @media(max-width: $break-medium - 1)
+            {
+                right: -10%;
+                top: 100%;
+            }
+        }
+    }
+
+    .content-container
+    {
+        padding-top: 15px;
+        text-align: justify;
+    }
+
+}
