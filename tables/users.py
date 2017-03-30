@@ -26,7 +26,7 @@ def add(username, password, email):
     if not get(username=username):
         user = Users(username = username, password = password, email = email)
         user.put()
-        return True
+        return user.key().id()
     return None
 
 def Delete_all():

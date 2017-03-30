@@ -11,3 +11,21 @@ def get_all(order="DESC"):
     else:
         order= "DESC"
     return db.GqlQuery("SELECT * FROM Articles ORDER BY date %s" % order).fetch(limit=None)
+
+def get(post_id=None):
+    if post_id:
+        article = db.GqlQuery("SELECT * FROM Articles WHERE __key__ = KEY('Articles', :article_id) LIMIT 1", user_id=int(user_id))
+
+    if 'article' in locals() and isinstance(article.get(), Articles):
+        return article[0]
+    return None
+
+def add(title, content, username):
+    article = Articles(title = title, content = content, user=username)
+    article.put()
+    return article.key().id()
+
+def Delete_all():
+    users = Users.all()
+    for u in users:
+        u.delete()

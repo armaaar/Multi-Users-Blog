@@ -2,16 +2,8 @@
 body {
   font-family: "Raleway", sans-serif;
   color: #444;
-  font-size: 18px; }
-  @media (min-width: 992px) {
-    body {
-      background: url(../imgs/fog-lg.png) repeat-y #eee; } }
-  @media (min-width: 768px) {
-    body {
-      background: url(../imgs/fog-md.png) repeat-y #eee; } }
-  @media (max-width: 767px) {
-    body {
-      background: url(../imgs/fog-sm.png) repeat-y #eee; } }
+  font-size: 18px;
+  background-color: #eee; }
 
 img {
   max-width: 100%; }
@@ -33,6 +25,9 @@ a, .cta-container a {
 
 .form-group.has-feedback.has-error .form-control-feedback.glyphicon.glyphicon-remove {
   display: block; }
+
+.form-message {
+  color: #f00; }
 
 #header {
   min-height: 75px;
@@ -105,4 +100,5 @@ article.article {
           top: 100%; } }
   article.article .content-container {
     padding-top: 15px;
-    text-align: justify; }
+    text-align: justify;
+    word-wrap: break-word; }

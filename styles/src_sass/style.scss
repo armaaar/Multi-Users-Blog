@@ -14,19 +14,7 @@ body
     font-family: $font-family;
     color: $font-color;
     font-size: 18px;
-
-    @media(min-width: $break-medium)
-    {
-        background: url(../imgs/fog-lg.png) repeat-y #eee;
-    }
-    @media(min-width: $break-small)
-    {
-        background: url(../imgs/fog-md.png) repeat-y #eee;
-    }
-    @media(max-width: $break-small - 1)
-    {
-        background: url(../imgs/fog-sm.png) repeat-y #eee;
-    }
+    background-color: #eee;
 }
 img
 {
@@ -47,30 +35,6 @@ a
     }
 }
 
-.form-group.has-feedback
-{
-    .form-control-feedback
-    {
-        top: 30px;
-        display: none;
-    }
-}
-
-.form-group.has-feedback.has-success
-{
-    .form-control-feedback.glyphicon.glyphicon-ok
-    {
-        display: block;
-    }
-}
-
-.form-group.has-feedback.has-error
-{
-    .form-control-feedback.glyphicon.glyphicon-remove
-    {
-        display: block;
-    }
-}
-
+@import "forms";
 @import "menu";
 @import "articles";

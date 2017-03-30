@@ -24,5 +24,6 @@ app = webapp2.WSGIApplication([
     ('/blog/?', blog.BlogHandler),
     ('/register/?', signup.SignupHandler),
     ('/logout/?', logout.LogoutHandler),
-    ('/login/?', login.LoginHandler)
+    ('/login/?', login.LoginHandler),
+    ('/newpost/?', newpost.NewPostHandler)
 ], debug=True)
