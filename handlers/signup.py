@@ -4,6 +4,8 @@ import re
 class SignupHandler(Handler):
     def __init__(self, *args, **kwargs) :
         super(SignupHandler, self).__init__(*args, **kwargs)
+        self.title = "Become a Writer"
+        self.body_class = 'signup-page'
 
     def get(self):
         if self.is_loggedin():

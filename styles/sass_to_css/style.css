@@ -9,7 +9,7 @@ img {
   max-width: 100%; }
 
 a, .cta-container a {
-  color: #BDF; }
+  color: #BBE; }
 
 .cta-container {
   text-align: center;
@@ -96,7 +96,7 @@ article.article {
       top: 100px;
       line-height: 0;
       font-size: 20em;
-      color: #BDF; }
+      color: #BBE; }
       @media (max-width: 991px) {
         article.article .title-container .article-identifier {
           right: -10%;

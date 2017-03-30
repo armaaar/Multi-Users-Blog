@@ -26,6 +26,15 @@
 	</head>
 	<body class="{{ handler.body_class }}" >
 		{% include "./head/menu.jinja" %}
+
+		{% if helper.variables.site_title != handler.title %}
+			<div class="container">
+				<div class="col-xs-12">
+					<h1 class="page-title">{{ handler.title }}</h1>
+				</div>
+			</div>
+		{% endif %}
+
 		{% block content %}
         {% endblock content %}
 	</body>

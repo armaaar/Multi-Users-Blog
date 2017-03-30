@@ -3,6 +3,8 @@ from handlers import tables, helper, Handler
 class LoginHandler(Handler):
     def __init__(self, *args, **kwargs) :
         super(LoginHandler, self).__init__(*args, **kwargs)
+        self.title = "Login"
+        self.body_class = 'login-page'
 
     def get(self):
         if self.is_loggedin():

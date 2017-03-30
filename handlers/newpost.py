@@ -3,6 +3,8 @@ from handlers import tables, helper, Handler
 class NewPostHandler(Handler):
     def __init__(self, *args, **kwargs) :
         super(NewPostHandler, self).__init__(*args, **kwargs)
+        self.title = "Publish a new article"
+        self.body_class = 'newpost-page'
 
     def get(self):
         if not self.is_loggedin():

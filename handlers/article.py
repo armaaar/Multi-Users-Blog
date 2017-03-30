@@ -3,7 +3,7 @@ from handlers import tables, helper, Handler
 class ArticleHandler(Handler):
     def __init__(self, *args, **kwargs) :
         super(ArticleHandler, self).__init__(*args, **kwargs)
-
+        self.body_class = 'article-page'
 
     def get(self, article_id):
         if not article_id.isdigit():
