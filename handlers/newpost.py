@@ -16,7 +16,7 @@ class NewPostHandler(Handler):
         if not self.is_loggedin():
             self.page_redirect("/login/")
         else:
-            title = elf.request.get("title")
+            title = self.request.get("title")
             content = self.request.get("content")
             if not title:
                 error = "Title must not be empty."

@@ -68,5 +68,5 @@ class Handler(webapp2.RequestHandler):
         return True
 
     def page_redirect(self, url):
-        time.sleep(0.1)
+        time.sleep(0.1) #sleep to have enough time setting cookies or change db or whatever
         self.redirect(str(url))

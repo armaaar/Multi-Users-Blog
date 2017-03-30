@@ -12,6 +12,8 @@
                             </a>
                         </h1>
                         <span class="article-identifier text-uppercase">{{ article.user[0] }}</span>
+                        <span class="article-likes">{{ tables.likes.get_likes(article.key().id()) }} <span class="glyphicon glyphicon-thumbs-up"></span></span>
+                        <span> | </span>
                         <span class="article-date">{{ article.date.strftime("%b %d, %Y") }}</span>
                     </div>
 

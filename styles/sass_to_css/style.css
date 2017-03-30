@@ -9,7 +9,7 @@ img {
   max-width: 100%; }
 
 a {
-  color: #BBE; }
+  color: #89F; }
 
 .cta-container {
   text-align: center;
@@ -65,13 +65,11 @@ a {
       #header #logo-container img {
         max-height: 63px; } }
 
-body.blog-page article.article {
-  border-bottom: 1px solid #ddd; }
-
 article.article {
   margin-top: 20px;
-  padding-bottom: 10px;
-  min-height: 260px; }
+  padding-bottom: 20px;
+  min-height: 260px;
+  border-bottom: 1px solid #ddd; }
   article.article .title-container {
     position: relative; }
     @media (max-width: 991px) {
@@ -107,3 +105,18 @@ article.article {
     padding-top: 15px;
     text-align: justify;
     word-wrap: break-word; }
+
+.public-options {
+  padding: 10px 0; }
+  .public-options .ssk-group {
+    display: inline-block;
+    float: right; }
+    .public-options .ssk-group .ssk-title {
+      font-size: 18px; }
+    .public-options .ssk-group .ssk.ssk-icon {
+      margin: 0 4px; }
+  .public-options .like-option {
+    display: inline-block;
+    font-size: 18px; }
+    .public-options .like-option a {
+      text-decoration: none; }
