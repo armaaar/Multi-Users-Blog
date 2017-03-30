@@ -1,0 +1,27 @@
+{% extends "./head/head.jinja" %}
+
+{% block content %}
+    <div class="container">
+        {% if article %}
+            <article class="row article">
+                <div class="col-xs-12 col-md-6 title-container">
+                    <h1 class="article-title text-capitalize">
+                        {{ article.title }}
+                    </h1>
+                    <span class="article-identifier text-uppercase">{{ article.user[0] }}</span>
+                    <span class="article-date">{{ article.date.strftime("%b %d, %Y") }}</span>
+                </div>
+
+                <div class="col-xs-12 col-md-6 content-container">
+                    {{ helper.functions.add_breaks(article.content) | safe }}
+                </div>
+            </article>
+        {% else %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>The requested article is not found.</h1>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

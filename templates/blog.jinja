@@ -7,7 +7,7 @@
                 <article class="row article">
                     <div class="col-xs-12 col-md-6 title-container">
                         <h1 class="article-title text-capitalize">
-                            <a href="/blog/{{ article.key().id() }}/">
+                            <a href="/article/{{ article.key().id() }}/">
                                 {{ article.title }}
                             </a>
                         </h1>
@@ -18,7 +18,7 @@
                     <div class="col-xs-12 col-md-6 content-container">
                         {{ helper.functions.add_breaks(article.content) | safe }}
                          <div class="cta-container">
-                            <a href="/blog/{{ article.key().id() }}" class="btn btn-default text-uppercase">read more</a>
+                            <a href="/article/{{ article.key().id() }}" class="btn btn-default text-uppercase">read more</a>
                         </div>
                     </div>
                 </article>

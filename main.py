@@ -22,6 +22,7 @@ from handlers import *
 app = webapp2.WSGIApplication([
     ('/', blog.BlogHandler),
     ('/blog/?', blog.BlogHandler),
+    ('/article/(\d+)/?', article.ArticleHandler),
     ('/register/?', signup.SignupHandler),
     ('/logout/?', logout.LogoutHandler),
     ('/login/?', login.LoginHandler),

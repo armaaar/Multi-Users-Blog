@@ -54,7 +54,7 @@ class Handler(webapp2.RequestHandler):
         if isinstance(user, tables.users.Users):
             cookie_pw = cookie_pw.split("|")
             if cookie_pw[0] == helper.functions.hash_it(user.password, cookie_pw[1]):
-                return True
+                return cookie_username
 
         return None
 

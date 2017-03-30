@@ -65,10 +65,13 @@ a, .cta-container a {
       #header #logo-container img {
         max-height: 63px; } }
 
+body.blog-page article.article {
+  border-bottom: 1px solid #ddd; }
+
 article.article {
   margin-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd; }
+  min-height: 260px; }
   article.article .title-container {
     position: relative; }
     @media (max-width: 991px) {
@@ -90,7 +93,7 @@ article.article {
       z-index: -1;
       position: absolute;
       right: -15%;
-      top: 40%;
+      top: 100px;
       line-height: 0;
       font-size: 20em;
       color: #BDF; }

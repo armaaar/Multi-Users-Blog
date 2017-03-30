@@ -1,8 +1,13 @@
+body.blog-page article.article
+{
+    border-bottom: 1px solid $inactive-color;
+}
+
 article.article
 {
     margin-top: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid $inactive-color;
+    min-height: 260px;
 
     .title-container
     {
@@ -37,7 +42,7 @@ article.article
             z-index: -1;
             position: absolute;
             right: -15%;
-            top: 40%;
+            top: 100px;
             line-height: 0;
 
             font-size: 20em;
