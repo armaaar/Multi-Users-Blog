@@ -5,4 +5,4 @@ import helper
 #main handlers
 from handler import Handler
 
-__all__ = ["blog", "signup"]
+__all__ = ["blog", "signup", "logout"]
