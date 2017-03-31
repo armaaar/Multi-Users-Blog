@@ -17,6 +17,8 @@ class EditPostHandler(Handler):
 
     def post(self, article_id):
         article = tables.articles.get(article_id)
+        if article is None:
+            self.page_redirect("/")
         if self.is_loggedin() != article.user:
             self.page_redirect("/login/")
         else:
