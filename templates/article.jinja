@@ -30,7 +30,7 @@
             </article>
             <div class="row public-options" id="like">
                 <div class="col-xs-12">
-                    {% if handler.is_loggedin() %}
+                    {% if handler.is_loggedin() and handler.is_loggedin() != article.user %}
                     <div class="like-option">
                         <form method="post" id="like-form">
                             <input type="hidden" readonly="readonly" name="like" value="1">
