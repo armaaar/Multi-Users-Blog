@@ -14,12 +14,12 @@
                         <span class="article-identifier text-uppercase">{{ article.user[0] }}</span>
                         <span class="article-likes">{{ tables.likes.get_likes(article.key().id()) }} <span class="glyphicon glyphicon-thumbs-up"></span></span>
                         <span> | </span>
-                        <span class="article-date">{{ article.date.strftime("%b %d, %Y") }}</span>
+                        <span class="article-date">{{ article.creation_date.strftime("%b %d, %Y") }}</span>
                     </div>
 
                     <div class="col-xs-12 col-md-6 content-container">
-                        {{ helper.functions.add_breaks(article.content) | safe }}
-                         <div class="cta-container">
+                        {{ helper.functions.add_breaks(article.content[:901]) | safe }}...
+                        <div class="cta-container">
                             <a href="/article/{{ article.key().id() }}" class="btn btn-default text-uppercase">read more</a>
                         </div>
                     </div>

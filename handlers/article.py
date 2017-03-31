@@ -11,20 +11,42 @@ class ArticleHandler(Handler):
             self.page_redirect("/")
         else:
             article= tables.articles.get(article_id)
-            self.render('article.jinja', handler=self, article= article)
+            comments= tables.comments.get_comments(article_id)
+            self.render('article.jinja', handler=self, article= article, comments=comments)
 
     def post(self, article_id):
         if not article_id.isdigit() or not self.is_loggedin():
             self.page_redirect("/")
         else:
+
             like = self.request.get("like")
+            new_comment = self.request.get("new-comment")
+            delete_comment = self.request.get("delete-comment")
+            edit_comment = self.request.get("edit-comment")
+
             if like:
                 username = self.get_cookie("username")
                 if tables.likes.exist(article_id, username):
                     tables.likes.delete(article_id, username)
                 else:
                     tables.likes.add(article_id, username)
+                self.page_redirect("/article/%s/#like" % article_id)
 
-                article= tables.articles.get(article_id)
-                time.sleep(0.1) #sleep to get the right number of likes
-                self.render('article.jinja', handler=self, article= article)
+            elif new_comment:
+                new_comment = self.request.get("comment")
+                username = self.get_cookie("username")
+                tables.comments.add(article_id, username, new_comment)
+                self.page_redirect("/article/%s/#comments" % article_id)
+
+            elif delete_comment:
+                comment_id = self.request.get("comment-id")
+                tables.comments.delete(comment_id)
+                self.page_redirect("/article/%s/#comments" % article_id)
+
+            elif edit_comment:
+                comment_id = self.request.get("comment-id")
+                comment = self.request.get("comment")
+                tables.comments.edit(comment_id, comment)
+                self.page_redirect("/article/%s/#comments" % article_id)
+            else:
+                self.page_redirect("/article/%s/" % article_id)

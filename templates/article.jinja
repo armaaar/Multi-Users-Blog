@@ -11,7 +11,7 @@
                     <span class="article-identifier text-uppercase">{{ article.user[0] }}</span>
                     <span class="article-likes">{{ tables.likes.get_likes(article.key().id()) }} <span class="glyphicon glyphicon-thumbs-up"></span></span>
                     <span> | </span>
-                    <span class="article-date">{{ article.date.strftime("%b %d, %Y") }}</span>
+                    <span class="article-date">{{ article.creation_date.strftime("%b %d, %Y") }}</span>
                     {% if handler.is_loggedin() == article.user %}
                         <div class="post-options cta-container">
                             <a href="/editpost/{{ article.key().id() }}" class="btn btn-default text-uppercase">
@@ -28,29 +28,82 @@
                     {{ helper.functions.add_breaks(article.content) | safe }}
                 </div>
             </article>
-            <div class="public-options">
-                {% if handler.is_loggedin() %}
-                <div class="like-option">
-                    <form method="post" id="like-form">
-                        <input type="hidden" readonly="readonly" name="like" value="1">
-                        <a href="javascript:void(0)" class="text-capitalize" onclick="document.getElementById('like-form').submit();">
-                            {% if tables.likes.exist(article.key().id(), handler.is_loggedin()) %}
-                                <span class="glyphicon glyphicon-thumbs-down"></span> Unlike This Article
-                            {% else %}
-                                <span class="glyphicon glyphicon-thumbs-up"></span> Like This Article
-                            {% endif %}
-                        </a>
-                    </form>
-                </div>
-                {% endif %}
-                <div class="ssk-lg ssk-group">
-                    <span class="ssk-title">Share This Article:</span>
-                    <a href="" class="ssk ssk-icon ssk-facebook"></a>
-                    <a href="" class="ssk ssk-icon ssk-twitter"></a>
-                    <a href="" class="ssk ssk-icon ssk-google-plus"></a>
+            <div class="row public-options" id="like">
+                <div class="col-xs-12">
+                    {% if handler.is_loggedin() %}
+                    <div class="like-option">
+                        <form method="post" id="like-form">
+                            <input type="hidden" readonly="readonly" name="like" value="1">
+                            <a href="javascript:void(0)" class="text-capitalize" onclick="document.getElementById('like-form').submit();">
+                                {% if tables.likes.exist(article.key().id(), handler.is_loggedin()) %}
+                                    <span class="glyphicon glyphicon-thumbs-down"></span> Unlike This Article
+                                {% else %}
+                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like This Article
+                                {% endif %}
+                            </a>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <div class="ssk-lg ssk-group">
+                        <span class="ssk-title">Share This Article:</span>
+                        <a href="" class="ssk ssk-icon ssk-facebook"></a>
+                        <a href="" class="ssk ssk-icon ssk-twitter"></a>
+                        <a href="" class="ssk ssk-icon ssk-google-plus"></a>
+                    </div>
                 </div>
             </div>
-        {% else %}
+            <!-- comments -->
+            {% if comments or handler.is_loggedin() %}
+            <section class="comments row" id="comments">
+                <h2 class="section-title text-capitalize">Comments</h2>
+                {% if handler.is_loggedin() %}
+                    <div class="add-comment col-xs-12">
+                        <h3>Add a comment:</h3>
+                        <form method="post" id="add-comment-form">
+                            <input type="hidden" readonly="readonly" name="new-comment" value="1">
+                            <div class="form-group">
+                                <textarea name="comment" rows="5"  class="form-control"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default text-capitalize">Comment</button>
+                        </form>
+                    </div>
+                {% endif %}
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="comment col-xs-12" id="comment-{{ comment.key().id() }}">
+                        <div class="row">
+                            <div class="col-xs-1">
+                                <span class="text-uppercase comment-identifier">{{ comment.user[0] }}</span>
+                            </div>
+                            <div class="col-xs-11 comment-body">
+                                <form method="post" >
+                                    <input type="hidden" readonly="readonly" name="comment-id" value="{{ comment.key().id() }}">
+                                    <p class="comment-date">{{ comment.submit_datetime.strftime("%b %d, %Y") }}</p>
+                                    <textarea name="comment" rows="8" disabled="disabled" style="display: none" class="form-control"></textarea>
+                                    <span class="actual-comment">{{comment.comment}}</span>
+                                    {% if handler.is_loggedin() == comment.user %}
+                                        <div class="comment-options cta-container">
+                                            <button type="submit" disabled="disabled" style="display: none" name="edit-comment" value="1"
+                                                    class="btn btn-default text-capitalize">
+                                                <span class="glyphicon glyphicon-edit"></span> Edit
+                                            </button>
+                                            <a href="javascript:void(0)" data-id="{{ comment.key().id() }}" data-edit="0" class="btn btn-default text-capitalize comment-edit">
+                                                 edit
+                                            </a>
+                                            <button type="submit" class="btn btn-default text-capitalize" name="delete-comment" value="1">
+                                                <span class="glyphicon glyphicon-remove"></span> delete
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </section>
+        {% endif %}
+        {% else %} {# There is no article #}
             <div class="row">
                 <div class="col-xs-12">
                     <h1>The requested article is not found.</h1>

@@ -19,11 +19,11 @@ class Handler(webapp2.RequestHandler):
 
     def __init__(self, *args, **kwargs) :
         super(Handler, self).__init__(*args, **kwargs)
-        self.title = "Parallel Words"
-        self.body_class = ''
-        self.description = ''
-        self.keywords = ''
-        self.seo_img = ''
+        self.title = helper.variables.site_title
+        self.body_class = helper.variables.body_class
+        self.description = helper.variables.description
+        self.keywords = helper.variables.keywords
+        self.seo_img = helper.variables.seo_img
 
     def write(self, *a, **kw):
         self.response.write(*a, **kw)

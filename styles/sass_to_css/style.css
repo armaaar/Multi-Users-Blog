@@ -12,7 +12,6 @@ a {
   color: #89F; }
 
 .cta-container {
-  text-align: center;
   margin-top: 10px;
   margin-bottom: 5px; }
 
@@ -90,11 +89,11 @@ article.article {
     article.article .title-container .article-identifier {
       z-index: -1;
       position: absolute;
-      right: -15%;
+      right: -5%;
       top: 100px;
       line-height: 0;
       font-size: 20em;
-      color: #BBE; }
+      color: #89F; }
       @media (max-width: 991px) {
         article.article .title-container .article-identifier {
           right: -10%;
@@ -128,3 +127,26 @@ article.article {
     padding: 4px 0; }
     .public-options .like-option a {
       text-decoration: none; }
+
+.comments {
+  margin-bottom: 20px; }
+  @media (max-width: 991px) {
+    .comments .section-title {
+      text-align: center; } }
+  .comments .add-comment, .comments .comment {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    min-height: 95px; }
+  .comments .comment-identifier {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    line-height: 0;
+    font-size: 7em;
+    color: #89F; }
+  .comments .comment-body {
+    border-left: 1px solid #ddd; }
+    .comments .comment-body .comment-date {
+      font-size: 0.9em; }

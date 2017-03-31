@@ -3,14 +3,14 @@ class Articles(db.Model):
     title = db.StringProperty(required= True)
     content = db.TextProperty(required= True)
     user = db.StringProperty(required= True)
-    date = db.DateProperty(auto_now_add = True)
+    creation_date = db.DateTimeProperty(auto_now_add = True)
 
-def get_all(order="DESC"):
+def get_all(order="DESC", limit=None):
     if order != "DESC":
         order= "ASC"
     else:
         order= "DESC"
-    return db.GqlQuery("SELECT * FROM Articles ORDER BY date %s" % order).fetch(limit=None)
+    return db.GqlQuery("SELECT * FROM Articles ORDER BY creation_date %s" % order).fetch(limit=limit)
 
 def get(article_id=None):
     if article_id.isdigit():

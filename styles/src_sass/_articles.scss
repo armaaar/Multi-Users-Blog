@@ -38,12 +38,12 @@ article.article
         {
             z-index: -1;
             position: absolute;
-            right: -15%;
+            right: -5%;
             top: 100px;
             line-height: 0;
 
             font-size: 20em;
-            color: #BBE;
+            color: $special-color;
 
             @media(max-width: $break-medium - 1)
             {
@@ -102,4 +102,44 @@ article.article
             text-decoration: none;
         }
     }
+}
+
+.comments
+{
+    margin-bottom: 20px;
+    .section-title
+    {
+        @media(max-width: $break-medium - 1)
+        {
+            text-align: center;
+        }
+    }
+    .add-comment, .comment
+    {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $inactive-color;
+        margin-bottom: 10px;
+        min-height: 95px;
+    }
+
+    .comment-identifier
+    {
+        z-index: -1;
+        position: absolute;
+        right: 0;
+        top: 35px;
+        line-height: 0;
+        font-size: 7em;
+        color: $special-color;
+    }
+
+    .comment-body
+    {
+        border-left: 1px solid $inactive-color;
+        .comment-date
+        {
+            font-size: 0.9em;
+        }
+    }
+
 }
