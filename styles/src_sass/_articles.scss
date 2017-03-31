@@ -69,11 +69,19 @@ article.article
 .public-options
 {
     padding: 10px 0;
+    @media(max-width: $break-small - 1)
+    {
+        text-align: center;
+    }
     .ssk-group
     {
         display: inline-block;
         float: right;
-
+        @media(max-width: $break-small - 1)
+        {
+            float: none;
+            display: block;
+        }
         .ssk-title
         {
             font-size: 18px;
@@ -88,6 +96,7 @@ article.article
     {
         display: inline-block;
         font-size: 18px;
+        padding: 4px 0;
         a
         {
             text-decoration: none;

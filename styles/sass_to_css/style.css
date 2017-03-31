@@ -108,15 +108,23 @@ article.article {
 
 .public-options {
   padding: 10px 0; }
+  @media (max-width: 767px) {
+    .public-options {
+      text-align: center; } }
   .public-options .ssk-group {
     display: inline-block;
     float: right; }
+    @media (max-width: 767px) {
+      .public-options .ssk-group {
+        float: none;
+        display: block; } }
     .public-options .ssk-group .ssk-title {
       font-size: 18px; }
     .public-options .ssk-group .ssk.ssk-icon {
       margin: 0 4px; }
   .public-options .like-option {
     display: inline-block;
-    font-size: 18px; }
+    font-size: 18px;
+    padding: 4px 0; }
     .public-options .like-option a {
       text-decoration: none; }
