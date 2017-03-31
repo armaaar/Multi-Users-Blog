@@ -13,11 +13,11 @@ indexes:
 - kind: Comments
   properties:
   - name: article
-  - name: submit_datetime
+  - name: submit_date
     direction: desc
 
 - kind: Comments
   properties:
   - name: article
-  - name: submit_date
+  - name: submit_datetime
     direction: desc

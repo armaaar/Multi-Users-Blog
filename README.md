@@ -1,5 +1,5 @@
 # Multi User Blog
-A multi user blog website. This is for the "Multi User Blog" Project in [Udacity](https://www.udacity.com). You can try the blog from [here](https://multi-user-blog-162713.appspot.com/).
+A multi user blog website for the "Multi User Blog" Project in [Udacity](https://www.udacity.com). You can try the blog from [here](https://multi-user-blog-162713.appspot.com/).
 
 ## Blog features
 - Responsive design
